@@ -21,7 +21,9 @@ build:
     - sudo docker inspect $EXEC_ID
     - node --version
     - shippable_retry npm install --loglevel silly
-    - stress -t 60 -m 20 --vm-hang 5
+    - echo "starting the stress test"
+    - stress -t 10 -m 20 --vm-hang 5
+    - echo "finished the stress test"
   #- . installMongo.sh
   #- cat /etc/mongod.conf
   #- sudo mongod --smallfiles &
