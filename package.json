@@ -9,7 +9,7 @@
     "prepush": "./node_modules/.bin/grunt test"
   },
   "devDependencies": {
-    "@execthread/eslint-config-node": "^1.0.0",
+    
     "chai": "^3.5.0",
     "chai-as-promised": "^5.3.0",
     "eslint": "~2.10.2",
@@ -40,8 +40,7 @@
     "xunit-file": "0.0.9"
   },
   "dependencies": {
-    "@execthread/data-access": "git:git@github.com:ExecThread/data-access#665-add-subregion-again",
-    "@execthread/logger": "1.3.2",
+    
     "authorized": "1.0.0",
     "body-parser": "1.15.1",
     "chai": "3.5.0",
@@ -70,7 +69,7 @@
     "node-schedule": "1.1.0",
     "oibackoff": "1.0.1",
     "passport": "0.3.2",
-    "passport-linkedin-oauth2": "git:github.com/ExecThread/passport-linkedin-oauth2#feature/handle-blocked-public-profile",
+    
     "pug": "2.0.0-alpha7",
     "sanitize-filename": "1.6.0",
     "serve-favicon": "2.3.0",
