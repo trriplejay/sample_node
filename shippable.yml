@@ -7,9 +7,10 @@ node_js:
   - 0.10
 
 # The path for Xunit to output test reports
-#env:
-#  global:
-#    - XUNIT_FILE=shippable/testresults/result.xml
+env:
+  global:
+    - DEBUG=mongodb*,Mockgoose
+    - XUNIT_FILE=shippable/testresults/result.xml
 build:
   ci:
 
@@ -19,17 +20,16 @@ build:
     - EXEC_ID=`sudo docker ps | grep shippable-exec | awk '{print $1}'`
     - sudo docker logs --tail=500 $EXEC_ID
     - sudo docker inspect $EXEC_ID
+    - source ~/.nvm/nvm.sh
     - node --version
-    - shippable_retry npm install --loglevel silly
-    - echo "starting the stress test"
-    - sudo apt-get install -y stress 
-    - stress -t 10 -m 20 --vm-hang 5
-    - echo "finished the stress test"
-  #- . installMongo.sh
-  #- cat /etc/mongod.conf
-  #- sudo mongod --smallfiles &
-  #- sleep 15
-  #- mongo --eval 'db.collection.find()'
+    - touch .npmrc
+    - chmod 600 .npmrc
+    - shippable_retry npm install --loglevel silent
+    #- echo "starting the stress test"
+    #- sudo apt-get install -y stress 
+    #- stress -t 10 -m 20 --vm-hang 5
+    #- echo "finished the stress test"
+    - echo "made it past npm install"
 
 # Create directories for test and coverage reports
 #before_script:
