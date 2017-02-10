@@ -22,7 +22,7 @@ install:
   - node --version
   - sudo npm install -g grunt-cli
   - sudo npm install
-  - curl -o ulysses.txt https://www.gutenberg.org/files/4300/4300-0.txt
+  - curl -o ulysses.txt https://www.gutenberg.org/files/4300/4300-h/4300-h.htm
   - cat ulysses.txt
   #- . installMongo.sh
   #- cat /etc/mongod.conf
