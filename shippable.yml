@@ -10,24 +10,44 @@ env:
   global:
     - XUNIT_FILE=shippable/testresults/result.xml
 
+install:
+  - echo "$USER"
+  - echo "$HOME"
+  - sudo docker ps -a
+  - EXEC_ID=`sudo docker ps | grep shippable-exec | awk '{print $1}'`
+  - sudo docker logs --tail=500 $EXEC_ID
+  - sudo docker inspect $EXEC_ID
+  #- source ~/.nvm/nvm.sh && nvm install 0.12
+  - node --version
+  - sudo npm install -g grunt-cli
+  - sudo npm install
+  #- ./catFile.sh
+  #- cat Ulysses.txt 1>&2
+  - cat Ulysses.txt
+  - grunt
 
-build:
-  ci:
-    - echo "$USER"
-    - echo "$HOME"
-    - sudo docker ps -a
-    - EXEC_ID=`sudo docker ps | grep shippable-exec | awk '{print $1}'`
-    - sudo docker logs --tail=500 $EXEC_ID
-    - sudo docker inspect $EXEC_ID
-    #- source ~/.nvm/nvm.sh && nvm install 0.12
-    - node --version
-    - sudo npm install -g grunt-cli
-    - sudo npm install
-    #- ./catFile.sh
-    #- cat Ulysses.txt 1>&2
-    - cat Ulysses.txt
-    - grunt
+after_script:
+  - ./node_modules/.bin/istanbul cover grunt -- -u tdd
+  - ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/
 
-  on_success:
-    - ./node_modules/.bin/istanbul cover grunt -- -u tdd
-    - ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/
+
+# build:
+#   ci:
+#     - echo "$USER"
+#     - echo "$HOME"
+#     - sudo docker ps -a
+#     - EXEC_ID=`sudo docker ps | grep shippable-exec | awk '{print $1}'`
+#     - sudo docker logs --tail=500 $EXEC_ID
+#     - sudo docker inspect $EXEC_ID
+#     #- source ~/.nvm/nvm.sh && nvm install 0.12
+#     - node --version
+#     - sudo npm install -g grunt-cli
+#     - sudo npm install
+#     #- ./catFile.sh
+#     #- cat Ulysses.txt 1>&2
+#     - cat Ulysses.txt
+#     - grunt
+#
+#   on_success:
+    # - ./node_modules/.bin/istanbul cover grunt -- -u tdd
+    # - ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/
