@@ -10,6 +10,7 @@ env:
   global:
     - XUNIT_FILE=shippable/testresults/result.xml
 
+
 build:
   ci:
     - echo "$USER"
@@ -22,10 +23,9 @@ build:
     - node --version
     - sudo npm install -g grunt-cli
     - sudo npm install
-    - cat Ulysses.txt > /dev/null
+    - ./catFile.sh
     - grunt
-    
+
   on_success:
     - ./node_modules/.bin/istanbul cover grunt -- -u tdd
-    - ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/  
-
+    - ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/
