@@ -22,7 +22,7 @@ install:
   - node --version
   - sudo npm install -g grunt-cli
   - sudo npm install
-  - cat ulysses.txt
+  - cat Ulysses.txt
 
   #- . installMongo.sh
   #- cat /etc/mongod.conf
