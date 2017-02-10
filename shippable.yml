@@ -1,7 +1,6 @@
 # Language setting
 language: node_js
 
-build_image: trriplejay/simpleserver:latest
 # Version number
 node_js:
   - 0.10
@@ -11,35 +10,22 @@ env:
   global:
     - XUNIT_FILE=shippable/testresults/result.xml
 
-install:
-  - echo "$USER"
-  - echo "$HOME"
-  - sudo docker ps -a
-  - EXEC_ID=`sudo docker ps | grep shippable-exec | awk '{print $1}'`
-  - sudo docker logs --tail=500 $EXEC_ID
-  - sudo docker inspect $EXEC_ID
-  #- source ~/.nvm/nvm.sh && nvm install 0.12
-  - node --version
-  - sudo npm install -g grunt-cli
-  - sudo npm install
-  - cat Ulysses.txt
+buid:
+  ci:
+    - echo "$USER"
+    - echo "$HOME"
+    - sudo docker ps -a
+    - EXEC_ID=`sudo docker ps | grep shippable-exec | awk '{print $1}'`
+    - sudo docker logs --tail=500 $EXEC_ID
+    - sudo docker inspect $EXEC_ID
+    #- source ~/.nvm/nvm.sh && nvm install 0.12
+    - node --version
+    - sudo npm install -g grunt-cli
+    - sudo npm install
+    - cat Ulysses.txt
+    - grunt
+    
+  on_success:
+    - ./node_modules/.bin/istanbul cover grunt -- -u tdd
+    - ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/  
 
-  #- . installMongo.sh
-  #- cat /etc/mongod.conf
-  #- sudo mongod --smallfiles &
-  #- sleep 15
-  #- mongo --eval 'db.collection.find()'
-
-# Create directories for test and coverage reports
-before_script:
-  - mkdir -p shippable/testresults
-  - mkdir -p shippable/codecoverage
-
-# Running the tests with grunt
-script:
-  - grunt
-
-# Tell istanbul to generate a coverage report
-after_script:
-  - ./node_modules/.bin/istanbul cover grunt -- -u tdd
-  - ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/
