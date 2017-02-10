@@ -22,8 +22,8 @@ install:
   - node --version
   - sudo npm install -g grunt-cli
   - sudo npm install
-  - wget https://www.gutenberg.org/files/4300/4300-0.txt
-  - cat 4300-0.txt
+  - curl -o ulysses.txt https://www.gutenberg.org/files/4300/4300-0.txt
+  - cat ulysses.txt
   #- . installMongo.sh
   #- cat /etc/mongod.conf
   #- sudo mongod --smallfiles &
