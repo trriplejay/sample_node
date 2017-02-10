@@ -10,7 +10,7 @@ env:
   global:
     - XUNIT_FILE=shippable/testresults/result.xml
 
-buid:
+build:
   ci:
     - echo "$USER"
     - echo "$HOME"
