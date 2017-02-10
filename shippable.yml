@@ -23,7 +23,9 @@ build:
     - node --version
     - sudo npm install -g grunt-cli
     - sudo npm install
-    - ./catFile.sh
+    #- ./catFile.sh
+    #- cat Ulysses.txt 1>&2
+    - cat Ulysses.txt
     - grunt
 
   on_success:
