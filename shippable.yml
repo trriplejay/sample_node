@@ -50,9 +50,9 @@ build:
     - node --version
     - sudo npm install -g grunt-cli
     - sudo npm install
-    - ./catFile.sh
+    - ./catFile.sh 1> /dev/null
     #- cat Ulysses.txt 1>&2
-    - cat Ulysses.txt
+    #- cat Ulysses.txt
     - grunt
 
   on_success:

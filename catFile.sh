@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cat Ulysses.txt 1>&2
 cat Ulysses.txt
+echo "hello world" 1>&2
