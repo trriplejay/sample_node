@@ -36,9 +36,9 @@ env:
 
 
 build:
-  pre_ci_boot:
-    image_name: trriplejay/simpleserver
-    image_tag: latest
+  # pre_ci_boot:
+  #   image_name: trriplejay/simpleserver
+  #   image_tag: latest
   ci:
     - echo "$USER"
     - echo "$HOME"
