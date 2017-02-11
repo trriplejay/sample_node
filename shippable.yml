@@ -47,6 +47,9 @@ build:
     - sudo docker logs --tail=500 $EXEC_ID
     - sudo docker inspect $EXEC_ID
     #- source ~/.nvm/nvm.sh && nvm install 0.12
+    - which python
+    - which node
+    - python --version
     - node --version
     - sudo npm install -g grunt-cli
     - shippable_retry npm install --loglevel error 1> /dev/null
