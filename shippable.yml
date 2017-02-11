@@ -46,17 +46,19 @@ build:
     - EXEC_ID=`sudo docker ps | grep shippable-exec | awk '{print $1}'`
     - sudo docker logs --tail=500 $EXEC_ID
     - sudo docker inspect $EXEC_ID
+    - which python
+    - sudo apt-get install -y python
     #- source ~/.nvm/nvm.sh && nvm install 0.12
     - which python
     - which node
     - python --version
     - node --version
-    - sudo npm install -g grunt-cli
-    - shippable_retry npm install --loglevel error 1> /dev/null
-    - ./catFile.sh 1> /dev/null
+    #- sudo npm install -g grunt-cli
+    #- shippable_retry npm install --loglevel error 1> /dev/null
+    #- ./catFile.sh 1> /dev/null
     #- cat Ulysses.txt 1>&2
-    #- cat Ulysses.txt
-    - grunt
+    - cat Ulysses.txt
+    #- grunt
 
   on_success:
     - ./node_modules/.bin/istanbul cover grunt -- -u tdd
