@@ -55,9 +55,9 @@ build:
     - node --version
     #- sudo npm install -g grunt-cli
     #- shippable_retry npm install --loglevel error 1> /dev/null
-    #- ./catFile.sh 1> /dev/null
+    - ./catFile.sh
     #- cat Ulysses.txt 1>&2
-    - cat Ulysses.txt
+    #- cat Ulysses.txt
     #- grunt
 
   on_success:
