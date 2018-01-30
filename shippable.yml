@@ -43,9 +43,9 @@ build:
     - echo "$USER"
     - echo "$HOME"
     - sudo docker ps -a
-    - EXEC_ID=`sudo docker ps | grep reqProc | awk '{print $1}'`
-    - sudo docker logs --tail=500 $EXEC_ID
-    - sudo docker inspect $EXEC_ID
+    #- EXEC_ID=`sudo docker ps | grep reqProc | awk '{print $1}'`
+    #- sudo docker logs --tail=500 $EXEC_ID
+    #- sudo docker inspect $EXEC_ID
     - which python
     - sudo apt-get install -y python
     #- source ~/.nvm/nvm.sh && nvm install 0.12
@@ -60,6 +60,6 @@ build:
     #- cat Ulysses.txt
     #- grunt
 
-  on_success:
-    - ./node_modules/.bin/istanbul cover grunt -- -u tdd
-    - ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/
+  #on_success:
+    #- ./node_modules/.bin/istanbul cover grunt -- -u tdd
+    #- ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/
