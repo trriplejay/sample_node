@@ -43,7 +43,7 @@ build:
     - echo "$USER"
     - echo "$HOME"
     - sudo docker ps -a
-    - EXEC_ID=`sudo docker ps | grep shippable-exec | awk '{print $1}'`
+    - EXEC_ID=`sudo docker ps | grep reqProc | awk '{print $1}'`
     - sudo docker logs --tail=500 $EXEC_ID
     - sudo docker inspect $EXEC_ID
     - which python
