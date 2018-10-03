@@ -3,17 +3,16 @@ language: node_js
 
 # Version number
 node_js:
-  - 8.6.0
+  - 8.12.0
 
 build:
   ci:
-    #- sudo npm install -g grunt-cli
-    #- sudo npm install
-    - sudo apt-get install -y tree
+#     - sudo npm install -g grunt-cli
+#     - sudo npm install
     - node --version
     - npm --version
-    - grunt
+#     - grunt
   
-  on_success:
+#   on_success:
 #   - ./node_modules/.bin/istanbul cover grunt -- -u tdd
 #   - ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/
