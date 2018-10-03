@@ -5,38 +5,15 @@ language: node_js
 node_js:
   - 8.6.0
 
-# The path for Xunit to output test reports
-# env:
-#   global:
-#     - XUNIT_FILE=shippable/testresults/result.xml
-
-install:
-  - echo "$USER"
-  - echo "$HOME"
-  - sudo docker ps -a
-  #- EXEC_ID=`sudo docker ps | grep shippable-exec | awk '{print $1}'`
-  #- sudo docker logs --tail=500 $EXEC_ID
-  #- sudo docker inspect $EXEC_ID
-  #- source ~/.nvm/nvm.sh && nvm install 0.12
-
-  #- sudo npm install -g grunt-cli
-  #- sudo npm install
-  #- . installMongo.sh
-  #- cat /etc/mongod.conf
-  #- sudo mongod --smallfiles &
-  #- sleep 15
-  #- mongo --eval 'db.collection.find()'
-  - sudo apt-get install -y tree
-  - sudo tree /
-
-
-# Running the tests with grunt
-script:
-  - node --version
-  - npm --version
-  #- grunt
-
-# Tell istanbul to generate a coverage report
-# after_script:
+build:
+  ci:
+    #- sudo npm install -g grunt-cli
+    #- sudo npm install
+    - sudo apt-get install -y tree
+    - node --version
+    - npm --version
+    - grunt
+  
+  on_success:
 #   - ./node_modules/.bin/istanbul cover grunt -- -u tdd
 #   - ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/
