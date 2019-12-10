@@ -15,6 +15,7 @@ build:
 #     - sudo npm install
     - node --version
     - npm --version
+    - apt-get install jq
 #     - grunt
   
 #   on_success:
