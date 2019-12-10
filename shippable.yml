@@ -1,15 +1,11 @@
 # Language setting
-language: node_js
+language: java
 
 # Version number
 node_js:
   - 8.12.0
 
 build:
-  pre_ci_boot:
-    image_name: drydock/u16javall
-    image_tag: test
-    pull: true
   ci:
 #     - sudo npm install -g grunt-cli
 #     - sudo npm install
