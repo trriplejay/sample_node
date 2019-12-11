@@ -7,6 +7,7 @@ node_js:
 
 build:
   ci:
+    - history
 #     - sudo npm install -g grunt-cli
 #     - sudo npm install
     - node --version
