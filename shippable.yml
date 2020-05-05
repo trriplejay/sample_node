@@ -16,10 +16,10 @@ build:
     - apt-get install jq
 #     - grunt
 
-integrations:
-  key:
-    - integrationName: myPem
-      type: pemKey
+# integrations:
+#   key:
+#     - integrationName: myPem
+#       type: pemKey
   
 #   on_success:
 #   - ./node_modules/.bin/istanbul cover grunt -- -u tdd
