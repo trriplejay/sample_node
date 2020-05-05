@@ -8,12 +8,18 @@ node_js:
 build:
   ci:
     - history
+    - ls /tmp/ssh
 #     - sudo npm install -g grunt-cli
 #     - sudo npm install
     - node --version
     - npm --version
     - apt-get install jq
 #     - grunt
+
+integrations:
+  key:
+    - integrationName: myPem
+      type: pemKey
   
 #   on_success:
 #   - ./node_modules/.bin/istanbul cover grunt -- -u tdd
